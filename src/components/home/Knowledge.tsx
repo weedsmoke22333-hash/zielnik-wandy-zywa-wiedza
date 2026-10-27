@@ -37,7 +37,7 @@ export function Knowledge() {
               transition={{ duration: 0.8, delay: (i % 3) * 0.08, ease: [0.2, 0.7, 0.1, 1] }}
             >
               <Link to="/blog" className="group block h-full">
-                <div className={cn("relative h-full min-h-[260px] overflow-hidden rounded-sm", (layout[i] ?? "").split(" ").filter((c) => !c.startsWith("md:")).join(" "))}>
+                <div className={cn("relative w-full overflow-hidden rounded-sm md:h-full md:min-h-[260px]", (layout[i] ?? "").split(" ").filter((c) => !c.startsWith("md:")).join(" "))}>
                   <img
                     src={a.image.src}
                     alt={a.image.alt}
