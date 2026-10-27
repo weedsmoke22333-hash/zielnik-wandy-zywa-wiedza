@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as OMnieRouteImport } from './routes/o-mnie'
+import { Route as OdpornoscRouteImport } from './routes/odpornosc'
+import { Route as PolitykaCookiesRouteImport } from './routes/polityka-cookies'
+import { Route as PolitykaPrywatnosciRouteImport } from './routes/polityka-prywatnosci'
+import { Route as RegulaminRouteImport } from './routes/regulamin'
+import { Route as ZdroweNawykiRouteImport } from './routes/zdrowe-nawyki'
+import { Route as ZiolaIRoslinyRouteImport } from './routes/ziola-i-rosliny'
+import { Route as ZwrotyIReklamacjeRouteImport } from './routes/zwroty-i-reklamacje'
+import { Route as EbookiIndexRouteImport } from './routes/ebooki.index'
+import { Route as EbookiSlugRouteImport } from './routes/ebooki.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OMnieRoute = OMnieRouteImport.update({
+  id: '/o-mnie',
+  path: '/o-mnie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OdpornoscRoute = OdpornoscRouteImport.update({
+  id: '/odpornosc',
+  path: '/odpornosc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitykaCookiesRoute = PolitykaCookiesRouteImport.update({
+  id: '/polityka-cookies',
+  path: '/polityka-cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitykaPrywatnosciRoute = PolitykaPrywatnosciRouteImport.update({
+  id: '/polityka-prywatnosci',
+  path: '/polityka-prywatnosci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegulaminRoute = RegulaminRouteImport.update({
+  id: '/regulamin',
+  path: '/regulamin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZdroweNawykiRoute = ZdroweNawykiRouteImport.update({
+  id: '/zdrowe-nawyki',
+  path: '/zdrowe-nawyki',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZiolaIRoslinyRoute = ZiolaIRoslinyRouteImport.update({
+  id: '/ziola-i-rosliny',
+  path: '/ziola-i-rosliny',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZwrotyIReklamacjeRoute = ZwrotyIReklamacjeRouteImport.update({
+  id: '/zwroty-i-reklamacje',
+  path: '/zwroty-i-reklamacje',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookiIndexRoute = EbookiIndexRouteImport.update({
+  id: '/ebooki/',
+  path: '/ebooki/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookiSlugRoute = EbookiSlugRouteImport.update({
+  id: '/ebooki/$slug',
+  path: '/ebooki/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-mnie': typeof OMnieRoute
+  '/odpornosc': typeof OdpornoscRoute
+  '/polityka-cookies': typeof PolitykaCookiesRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
+  '/regulamin': typeof RegulaminRoute
+  '/zdrowe-nawyki': typeof ZdroweNawykiRoute
+  '/ziola-i-rosliny': typeof ZiolaIRoslinyRoute
+  '/zwroty-i-reklamacje': typeof ZwrotyIReklamacjeRoute
+  '/ebooki/$slug': typeof EbookiSlugRoute
+  '/ebooki/': typeof EbookiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-mnie': typeof OMnieRoute
+  '/odpornosc': typeof OdpornoscRoute
+  '/polityka-cookies': typeof PolitykaCookiesRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
+  '/regulamin': typeof RegulaminRoute
+  '/zdrowe-nawyki': typeof ZdroweNawykiRoute
+  '/ziola-i-rosliny': typeof ZiolaIRoslinyRoute
+  '/zwroty-i-reklamacje': typeof ZwrotyIReklamacjeRoute
+  '/ebooki/$slug': typeof EbookiSlugRoute
+  '/ebooki': typeof EbookiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-mnie': typeof OMnieRoute
+  '/odpornosc': typeof OdpornoscRoute
+  '/polityka-cookies': typeof PolitykaCookiesRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
+  '/regulamin': typeof RegulaminRoute
+  '/zdrowe-nawyki': typeof ZdroweNawykiRoute
+  '/ziola-i-rosliny': typeof ZiolaIRoslinyRoute
+  '/zwroty-i-reklamacje': typeof ZwrotyIReklamacjeRoute
+  '/ebooki/$slug': typeof EbookiSlugRoute
+  '/ebooki/': typeof EbookiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/kontakt'
+    | '/o-mnie'
+    | '/odpornosc'
+    | '/polityka-cookies'
+    | '/polityka-prywatnosci'
+    | '/regulamin'
+    | '/zdrowe-nawyki'
+    | '/ziola-i-rosliny'
+    | '/zwroty-i-reklamacje'
+    | '/ebooki/$slug'
+    | '/ebooki/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog'
+    | '/kontakt'
+    | '/o-mnie'
+    | '/odpornosc'
+    | '/polityka-cookies'
+    | '/polityka-prywatnosci'
+    | '/regulamin'
+    | '/zdrowe-nawyki'
+    | '/ziola-i-rosliny'
+    | '/zwroty-i-reklamacje'
+    | '/ebooki/$slug'
+    | '/ebooki'
+  id:
+    | '__root__'
+    | '/'
+    | '/blog'
+    | '/kontakt'
+    | '/o-mnie'
+    | '/odpornosc'
+    | '/polityka-cookies'
+    | '/polityka-prywatnosci'
+    | '/regulamin'
+    | '/zdrowe-nawyki'
+    | '/ziola-i-rosliny'
+    | '/zwroty-i-reklamacje'
+    | '/ebooki/$slug'
+    | '/ebooki/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
+  KontaktRoute: typeof KontaktRoute
+  OMnieRoute: typeof OMnieRoute
+  OdpornoscRoute: typeof OdpornoscRoute
+  PolitykaCookiesRoute: typeof PolitykaCookiesRoute
+  PolitykaPrywatnosciRoute: typeof PolitykaPrywatnosciRoute
+  RegulaminRoute: typeof RegulaminRoute
+  ZdroweNawykiRoute: typeof ZdroweNawykiRoute
+  ZiolaIRoslinyRoute: typeof ZiolaIRoslinyRoute
+  ZwrotyIReklamacjeRoute: typeof ZwrotyIReklamacjeRoute
+  EbookiSlugRoute: typeof EbookiSlugRoute
+  EbookiIndexRoute: typeof EbookiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-mnie': {
+      id: '/o-mnie'
+      path: '/o-mnie'
+      fullPath: '/o-mnie'
+      preLoaderRoute: typeof OMnieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/odpornosc': {
+      id: '/odpornosc'
+      path: '/odpornosc'
+      fullPath: '/odpornosc'
+      preLoaderRoute: typeof OdpornoscRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/polityka-cookies': {
+      id: '/polityka-cookies'
+      path: '/polityka-cookies'
+      fullPath: '/polityka-cookies'
+      preLoaderRoute: typeof PolitykaCookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/polityka-prywatnosci': {
+      id: '/polityka-prywatnosci'
+      path: '/polityka-prywatnosci'
+      fullPath: '/polityka-prywatnosci'
+      preLoaderRoute: typeof PolitykaPrywatnosciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/regulamin': {
+      id: '/regulamin'
+      path: '/regulamin'
+      fullPath: '/regulamin'
+      preLoaderRoute: typeof RegulaminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zdrowe-nawyki': {
+      id: '/zdrowe-nawyki'
+      path: '/zdrowe-nawyki'
+      fullPath: '/zdrowe-nawyki'
+      preLoaderRoute: typeof ZdroweNawykiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ziola-i-rosliny': {
+      id: '/ziola-i-rosliny'
+      path: '/ziola-i-rosliny'
+      fullPath: '/ziola-i-rosliny'
+      preLoaderRoute: typeof ZiolaIRoslinyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zwroty-i-reklamacje': {
+      id: '/zwroty-i-reklamacje'
+      path: '/zwroty-i-reklamacje'
+      fullPath: '/zwroty-i-reklamacje'
+      preLoaderRoute: typeof ZwrotyIReklamacjeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebooki/': {
+      id: '/ebooki/'
+      path: '/ebooki'
+      fullPath: '/ebooki/'
+      preLoaderRoute: typeof EbookiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebooki/$slug': {
+      id: '/ebooki/$slug'
+      path: '/ebooki/$slug'
+      fullPath: '/ebooki/$slug'
+      preLoaderRoute: typeof EbookiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
+  KontaktRoute: KontaktRoute,
+  OMnieRoute: OMnieRoute,
+  OdpornoscRoute: OdpornoscRoute,
+  PolitykaCookiesRoute: PolitykaCookiesRoute,
+  PolitykaPrywatnosciRoute: PolitykaPrywatnosciRoute,
+  RegulaminRoute: RegulaminRoute,
+  ZdroweNawykiRoute: ZdroweNawykiRoute,
+  ZiolaIRoslinyRoute: ZiolaIRoslinyRoute,
+  ZwrotyIReklamacjeRoute: ZwrotyIReklamacjeRoute,
+  EbookiSlugRoute: EbookiSlugRoute,
+  EbookiIndexRoute: EbookiIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
