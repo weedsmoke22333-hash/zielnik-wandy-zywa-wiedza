@@ -26,11 +26,11 @@ export function Knowledge() {
             prowadzonym zielniku.
           </p>
         </div>
-        <ul className="mt-16 grid auto-rows-auto gap-5 md:grid-cols-12">
+        <ul className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-12">
           {articles.map((a, i) => (
             <motion.li
               key={a.slug}
-              className={cn("relative", (layout[i] ?? "").split(" ").filter((c) => c.startsWith("md:")).join(" "))}
+              className={cn("relative min-w-0", (layout[i] ?? "").split(" ").filter((c) => c.startsWith("md:")).join(" "))}
               initial={{ opacity: 0, y: reduced ? 0 : 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10% 0px" }}
