@@ -30,14 +30,14 @@ export function Knowledge() {
           {articles.map((a, i) => (
             <motion.li
               key={a.slug}
-              className={cn("relative", layout[i].split(" ").filter((c) => c.startsWith("md:")).join(" "))}
+              className={cn("relative", (layout[i] ?? "").split(" ").filter((c) => c.startsWith("md:")).join(" "))}
               initial={{ opacity: 0, y: reduced ? 0 : 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10% 0px" }}
               transition={{ duration: 0.8, delay: (i % 3) * 0.08, ease: [0.2, 0.7, 0.1, 1] }}
             >
               <Link to="/blog" className="group block h-full">
-                <div className={cn("relative h-full min-h-[260px] overflow-hidden rounded-sm", layout[i].split(" ").filter((c) => !c.startsWith("md:")).join(" "))}>
+                <div className={cn("relative h-full min-h-[260px] overflow-hidden rounded-sm", (layout[i] ?? "").split(" ").filter((c) => !c.startsWith("md:")).join(" "))}>
                   <img
                     src={a.image.src}
                     alt={a.image.alt}

@@ -6,7 +6,7 @@ export function Newsletter() {
   const id = useId();
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; consent?: string }>({});
+  const [errors, setErrors] = useState<{ email?: string | undefined; consent?: string | undefined }>({});
   const [status, setStatus] = useState<"idle" | "loading" | "info">("idle");
   const [message, setMessage] = useState("");
 
