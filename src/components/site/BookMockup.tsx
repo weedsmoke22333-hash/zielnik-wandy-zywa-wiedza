@@ -81,14 +81,14 @@ export function BookMockup({ product, interactive, className }: { product: Produ
         {/* spine */}
         <div
           aria-hidden
-          className={cn("absolute inset-y-0 left-0", spineColor)}
-          style={{ width: DEPTH, transform: `rotateY(-90deg) translateZ(${DEPTH / 2}px)`, transformOrigin: "center" }}
+          className={cn("absolute inset-y-0", spineColor)}
+          style={{ width: DEPTH, left: -DEPTH / 2, transform: "rotateY(-90deg)" }}
         />
         {/* page edges */}
         <div
           aria-hidden
-          className="absolute inset-y-[3px] right-0 bg-[repeating-linear-gradient(90deg,#f7f5ef_0_1px,#e3dccb_1px_2px)]"
-          style={{ width: DEPTH - 2, transform: `rotateY(90deg) translateZ(${DEPTH / 2 - 1}px)`, transformOrigin: "center" , right: -(DEPTH/2) + 1 }}
+          className="absolute inset-y-[3px] bg-[repeating-linear-gradient(90deg,var(--ivory)_0_1px,var(--paper)_1px_2px)]"
+          style={{ width: DEPTH - 2, right: -(DEPTH - 2) / 2 + 2, transform: "rotateY(90deg)" }}
         />
         {/* back */}
         <div aria-hidden className={cn("absolute inset-0", spineColor)} style={{ transform: `translateZ(-${DEPTH / 2}px)` }} />

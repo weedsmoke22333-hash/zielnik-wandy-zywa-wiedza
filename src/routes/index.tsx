@@ -1,24 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/home/Hero";
+import { Philosophy } from "@/components/home/Philosophy";
+import { MeetWanda } from "@/components/home/MeetWanda";
+import { FeaturedBooks } from "@/components/home/FeaturedBooks";
+import { Knowledge } from "@/components/home/Knowledge";
+import { Newsletter } from "@/components/home/Newsletter";
+import { FinalCta } from "@/components/home/FinalCta";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Wanda Machocka — Blisko natury. Świadomie dla zdrowia." },
+      { name: "description", content: "Wiedza o ziołach, naturalne inspiracje i praktyczne poradniki, które pomagają świadomie troszczyć się o siebie każdego dnia." },
+      { property: "og:title", content: "Wanda Machocka — Blisko natury. Świadomie dla zdrowia." },
+      { property: "og:description", content: "Wiedza o ziołach, zdrowe nawyki i e-booki pisane odpowiedzialnie." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Hero />
+      <Philosophy />
+      <MeetWanda />
+      <FeaturedBooks />
+      <Knowledge />
+      <Newsletter />
+      <FinalCta />
+    </>
   );
 }
