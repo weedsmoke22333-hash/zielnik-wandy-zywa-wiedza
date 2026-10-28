@@ -6,6 +6,9 @@ import { FeaturedBooks } from "@/components/home/FeaturedBooks";
 import { Knowledge } from "@/components/home/Knowledge";
 import { Newsletter } from "@/components/home/Newsletter";
 import { FinalCta } from "@/components/home/FinalCta";
+import { Specimens } from "@/components/home/Specimens";
+import { Story } from "@/components/home/Story";
+import texture from "@/assets/hero-texture.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,7 +20,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "/" }, { rel: "preload", as: "image", href: texture, fetchPriority: "high" }],
   }),
   component: Index,
 });
@@ -26,9 +29,12 @@ function Index() {
   return (
     <>
       <Hero />
-      <Philosophy />
-      <MeetWanda />
-      <FeaturedBooks />
+      <Story>
+        <Philosophy />
+        <Specimens />
+        <MeetWanda />
+        <FeaturedBooks />
+      </Story>
       <Knowledge />
       <Newsletter />
       <FinalCta />
