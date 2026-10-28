@@ -19,7 +19,7 @@ export function Knowledge() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid gap-6 md:grid-cols-12">
           <h2 id="wiedza" className="text-h2 md:col-span-7">
-            Wiedza o roślinach <span className="italic text-forest">i codzienności</span>
+            Wiedza o roślinach <span className="text-forest">i codzienności</span>
           </h2>
           <p className="measure text-muted-foreground md:col-span-5 md:self-end">
             Opisy ziół, tradycyjne zastosowania, nawyki i zasady bezpieczeństwa — wszystko w jednym, spokojnie

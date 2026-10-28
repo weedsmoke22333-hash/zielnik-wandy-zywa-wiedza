@@ -51,7 +51,7 @@ export function Philosophy() {
       <div className="mx-auto grid max-w-[1400px] gap-16 px-5 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <h2 id="filozofia" className="text-h2 max-w-[14ch]">
-            Natura inspiruje. <span className="italic text-forest">Wiedza</span> pomaga wybierać świadomie.
+            Natura inspiruje. <span className="text-forest">Wiedza</span> pomaga wybierać świadomie.
           </h2>
           <div className="relative mt-16 aspect-[4/3] w-full overflow-hidden rounded-sm lg:w-[85%]">
             <img

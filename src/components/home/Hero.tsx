@@ -114,7 +114,7 @@ export function Hero() {
             </span>
             <span className="block overflow-hidden pb-[0.08em] pt-[0.14em] -mt-[0.14em]">
               <motion.span className="block" {...line(0.6)}>
-                Świadomie <span className="italic">dla</span> zdrowia.
+                Świadomie dla zdrowia.
               </motion.span>
             </span>
           </h1>
