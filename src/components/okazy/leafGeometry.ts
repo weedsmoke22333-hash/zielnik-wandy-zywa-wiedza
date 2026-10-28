@@ -28,7 +28,7 @@ export function createLeafGeometry(kind: LeafKind) {
   const segU = 40;
   const segV = 90;
   const geo = new THREE.PlaneGeometry(2, 1, segU, segV);
-  const pos = geo.attributes.position as THREE.BufferAttribute;
+  const pos = geo.attributes["position"] as THREE.BufferAttribute;
   for (let i = 0; i < pos.count; i++) {
     const u = pos.getX(i); // -1..1
     const v = pos.getY(i) + 0.5; // 0..1

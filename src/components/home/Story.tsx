@@ -13,16 +13,17 @@ export function Story({ children }: { children: ReactNode }) {
     const el = root.current;
     if (!el) return;
     const sections = () => Array.from(el.querySelectorAll<HTMLElement>(":scope > [data-tone]"));
-    const first = sections()[0]?.dataset.tone ?? "ivory";
-    el.style.setProperty("--story-bg", TONES[first] ?? TONES.ivory!);
+    const first = sections()[0]?.dataset["tone"] ?? "ivory";
+    el.style.setProperty("--story-bg", TONES[first] ?? TONES["ivory"]!);
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       // static: each section keeps its own tone
-      sections().forEach((s) => (s.style.backgroundColor = TONES[s.dataset.tone ?? "ivory"]!));
+      sections().forEach((s) => (s.style.backgroundColor = TONES[s.dataset["tone"] ?? "ivory"]!));
       return;
     }
 
     let ctx: { revert: () => void } | undefined;
     let cancelled = false;
+    let ctxCleanup = () => {};
     (async () => {
       const { gsap } = await import("gsap");
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
@@ -44,7 +45,7 @@ export function Story({ children }: { children: ReactNode }) {
             if (i === 0) return;
             const startPx = Math.max(0, s.offsetTop - vh * 0.75);
             const len = vh * 0.5;
-            tl.to(el, { "--story-bg": TONES[s.dataset.tone ?? "ivory"], duration: len / total }, startPx / total);
+            tl.to(el, { "--story-bg": TONES[s.dataset["tone"] ?? "ivory"], duration: len / total }, startPx / total);
           });
           tl.to({}, { duration: Math.max(0, 1 - tl.duration()) });
         }, el);
@@ -64,7 +65,6 @@ export function Story({ children }: { children: ReactNode }) {
       };
     })();
 
-    let ctxCleanup = () => {};
     return () => {
       cancelled = true;
       ctxCleanup();

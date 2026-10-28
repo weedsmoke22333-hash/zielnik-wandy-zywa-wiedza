@@ -11,11 +11,11 @@ export function RevealHeading({ children, className, id, as: Tag = "h2" }: { chi
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (el.getBoundingClientRect().top < window.innerHeight) return;
-    el.dataset.reveal = "pending";
+    el.dataset["reveal"] = "pending";
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e?.isIntersecting) {
-          el.dataset.reveal = "done";
+          el.dataset["reveal"] = "done";
           obs.disconnect();
         }
       },
