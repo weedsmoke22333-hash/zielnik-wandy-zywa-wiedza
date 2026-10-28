@@ -7,7 +7,7 @@ export function FinalCta() {
   const img = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.matchMedia("(min-width: 1024px)").matches) return;
     let ctx: { revert: () => void } | undefined;
     let cancelled = false;
     (async () => {

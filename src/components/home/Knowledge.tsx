@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { motion, useReducedMotion } from "motion/react";
 import { articles } from "@/data/articles";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +12,6 @@ const layout = [
 ];
 
 export function Knowledge() {
-  const reduced = useReducedMotion();
   return (
     <section aria-labelledby="wiedza" className="bg-ivory py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
@@ -28,13 +26,9 @@ export function Knowledge() {
         </div>
         <ul className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-12">
           {articles.map((a, i) => (
-            <motion.li
+            <li
               key={a.slug}
               className={cn("relative min-w-0", (layout[i] ?? "").split(" ").filter((c) => c.startsWith("md:")).join(" "))}
-              initial={{ opacity: 0, y: reduced ? 0 : 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.8, delay: (i % 3) * 0.08, ease: [0.2, 0.7, 0.1, 1] }}
             >
               <Link to="/blog" className="group block h-full">
                 <div className={cn("relative w-full overflow-hidden rounded-sm md:h-full md:min-h-[260px]", (layout[i] ?? "").split(" ").filter((c) => !c.startsWith("md:")).join(" "))}>
@@ -56,7 +50,7 @@ export function Knowledge() {
                   </div>
                 </div>
               </Link>
-            </motion.li>
+            </li>
           ))}
         </ul>
         <Link to="/blog" className="link-underline mt-12 inline-block text-lg font-semibold text-forest">

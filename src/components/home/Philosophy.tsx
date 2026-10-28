@@ -22,7 +22,7 @@ export function Philosophy() {
   const root = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.matchMedia("(min-width: 1024px)").matches) return;
     let ctx: { revert: () => void } | undefined;
     let cancelled = false;
     (async () => {
@@ -47,7 +47,7 @@ export function Philosophy() {
   }, []);
 
   return (
-    <section ref={root} aria-labelledby="filozofia" className="bg-ivory py-28 md:py-40">
+    <section ref={root} aria-labelledby="filozofia" data-tone="ivory" className="py-28 md:py-40">
       <div className="mx-auto grid max-w-[1400px] gap-16 px-5 md:px-10 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <h2 id="filozofia" className="text-h2 max-w-[14ch]">
