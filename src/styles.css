@@ -1,6 +1,9 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource-variable/newsreader/opsz.css";
+@import "@fontsource-variable/newsreader/opsz-italic.css";
+@import "@fontsource-variable/manrope/index.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,8 +12,8 @@
   --radius-md: 2px;
   --radius-lg: 2px;
   --radius-xl: 4px;
-  --font-display: "Newsreader", "Newsreader Fallback", Georgia, serif;
-  --font-sans: "Manrope", "Manrope Fallback", system-ui, sans-serif;
+  --font-display: "Newsreader Variable", "Newsreader Fallback", Georgia, serif;
+  --font-sans: "Manrope Variable", "Manrope Fallback", system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -82,12 +85,14 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: clip; font-size: 100%; }
+  html[data-text-size="lg"] { font-size: 112.5%; }
+  html[data-text-size="xl"] { font-size: 125%; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.65;
     overflow-x: clip;
     -webkit-font-smoothing: antialiased;
@@ -107,7 +112,7 @@
   }
 }
 
-@utility text-hero { font-size: clamp(3.25rem, 6.1vw, 5.8rem); line-height: 0.98; letter-spacing: -0.035em; font-variation-settings: "opsz" 72; }
+@utility text-hero { font-size: clamp(2.9rem, 4.9vw, 4.6rem); line-height: 0.98; letter-spacing: -0.035em; font-variation-settings: "opsz" 72; }
 @utility text-h2 { font-size: clamp(2.25rem, 4.4vw, 4rem); line-height: 1.02; letter-spacing: -0.03em; font-variation-settings: "opsz" 60; }
 @utility text-h3 { font-size: clamp(1.5rem, 2.2vw, 1.78rem); line-height: 1.15; letter-spacing: -0.015em; }
 @utility measure { max-width: 68ch; }

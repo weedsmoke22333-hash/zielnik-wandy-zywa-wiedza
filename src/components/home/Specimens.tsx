@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import fallback from "@/assets/okazy-fallback.webp";
 import { EMA_HERBAL_URL, plants } from "@/data/plants";
@@ -58,7 +59,7 @@ export function Specimens() {
   );
 
   return (
-    <section data-tone="sage" aria-labelledby="okazy" className="py-28 md:py-36">
+    <section data-tone="ivory" aria-labelledby="okazy" className="py-28 md:py-36">
       <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-5 md:px-10 lg:grid-cols-12">
         <div ref={stage} className="relative aspect-[4/3] w-full lg:col-span-7 lg:aspect-[5/4]">
           {mode === "3d" && near ? (
@@ -80,7 +81,7 @@ export function Specimens() {
                 aria-pressed={i === active}
                 onClick={() => setActive(i)}
                 className={cn(
-                  "min-h-12 rounded-sm border px-5 text-[16px] font-semibold transition-colors",
+                  "min-h-12 rounded-sm border px-5 text-base font-semibold transition-colors",
                   i === active ? "border-forest bg-forest text-ivory" : "border-forest/40 text-forest hover:border-forest",
                 )}
               >
@@ -97,13 +98,19 @@ export function Specimens() {
               <span className="font-semibold text-deep">Ostrożność: </span>
               {plant.caution}
             </p>
-            <p className="mt-6 border-t border-border pt-4 text-[15px] text-muted-foreground">
+            <p className="mt-6 border-t border-border pt-4 text-[0.9375rem] text-muted-foreground">
               Tradycyjne zastosowanie oparte na długoletnim stosowaniu, nie na badaniach klinicznych.{" "}
               <a href={EMA_HERBAL_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
                 Źródło: monografia EMA/HMPC
               </a>
             </p>
+            <Link to="/ziola-i-rosliny/$slug" params={{ slug: plant.herbSlug }} className="link-underline mt-5 inline-block font-semibold text-forest">
+              Pełna karta: {plant.polish}
+            </Link>
           </div>
+          <Link to="/ziola-i-rosliny" className="mt-8 inline-flex min-h-14 items-center rounded-sm border border-forest px-7 font-semibold text-forest transition-colors hover:bg-forest hover:text-ivory">
+            Otwórz atlas roślin
+          </Link>
         </div>
       </div>
     </section>

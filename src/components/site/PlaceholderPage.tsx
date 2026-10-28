@@ -16,17 +16,4 @@ export function PlaceholderPage({ latin, title, intro, children }: { latin: stri
   );
 }
 
-export function pageHead(title: string, description: string, path: string) {
-  const full = `${title} — Wanda Machocka`;
-  return {
-    meta: [
-      { title: full },
-      { name: "description", content: description },
-      { property: "og:title", content: full },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: path },
-    ],
-    links: [{ rel: "canonical", href: path }],
-  };
-}
+export { pageHead } from "@/lib/site";

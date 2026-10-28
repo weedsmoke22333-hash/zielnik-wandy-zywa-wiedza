@@ -11,5 +11,9 @@
 
 ## Project rules
 - Motion for React handles component/entrance motion; GSAP+ScrollTrigger (dynamically imported, gsap.context reverted on unmount) only for scroll-scrubbed effects; never both on one element.
-- Portrait only via `WandaPortrait` (auto-detects src/assets/wanda-portrait.*); never generate human imagery.
-- Sample content lives in typed `src/data/*.ts`; services without a backend (e.g. newsletter) are stubs that must not report success.
+- Portrait only via `WandaPortrait` (auto-detects src/assets/wanda-portrait.*); never generate, retouch or AI-edit human imagery.
+- Herb/article/product content lives in typed `src/data/*.ts`; `src/test/content-rules.test.ts` must pass (sources, precautions, no cure claims).
+- Server code in `src/lib/server/*` and `src/routes/api/*` only; secrets never use the VITE_ prefix.
+- Integrations without keys must answer "not configured" — never fake success (newsletter, contact, payments).
+- An order becomes `paid` only in `/api/stripe-webhook`. Prices always come from the database.
+- Font sizes in rem (the A/A+/A++ switch scales the root font size). No ALL-CAPS eyebrows, no gradient washes, radius 2px.

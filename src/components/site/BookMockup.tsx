@@ -18,6 +18,19 @@ function Cover({ product }: { product: Product }) {
         <p className="text-xs text-ivory/70">Wanda Machocka</p>
       </div>
     );
+  if (v === "bundle")
+    return (
+      <div className="paper-grain flex h-full flex-col bg-deep p-6 text-ivory">
+        <p className="text-xs font-semibold text-copper">Wanda Machocka</p>
+        <p className="mt-4 font-display text-[1.65rem] leading-[1.02] tracking-[-0.02em]">Zielnik kompletny</p>
+        <ul className="mt-auto space-y-2 border-t border-ivory/20 pt-4">
+          {["Salvia officinalis", "Tilia cordata", "Calendula officinalis"].map((l) => (
+            <li key={l} className="latin text-sm text-sage">{l}</li>
+          ))}
+        </ul>
+        <p className="mt-3 text-xs text-ivory/70">Trzy poradniki</p>
+      </div>
+    );
   if (v === "ivory")
     return (
       <div className="paper-grain flex h-full flex-col bg-ivory p-6 text-deep">
@@ -48,7 +61,7 @@ export function BookMockup({ product, interactive, className }: { product: Produ
   const ry = useSpring(useTransform(px, [-0.5, 0.5], [-24, -8]), { stiffness: 120, damping: 18 });
   const rx = useSpring(useTransform(py, [-0.5, 0.5], [6, -6]), { stiffness: 120, damping: 18 });
   const shadowX = useTransform(ry, [-24, -8], [18, -6]);
-  const spineColor = product.cover.variant === "ivory" ? "bg-paper" : product.cover.variant === "forest" ? "bg-deep" : "bg-brown";
+  const spineColor = product.cover.variant === "ivory" ? "bg-paper" : product.cover.variant === "copper" ? "bg-brown" : "bg-deep";
 
   return (
     <div

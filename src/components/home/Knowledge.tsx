@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { articles } from "@/data/articles";
 import { cn } from "@/lib/utils";
+import { RevealHeading } from "@/components/site/RevealHeading";
 
 const layout = [
   "md:col-span-5 md:row-span-2 aspect-[3/4] md:aspect-auto",
@@ -16,9 +17,7 @@ export function Knowledge() {
     <section aria-labelledby="wiedza" className="bg-ivory py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <div className="grid gap-6 md:grid-cols-12">
-          <h2 id="wiedza" className="text-h2 md:col-span-7">
-            Wiedza o roślinach <span className="text-forest">i codzienności</span>
-          </h2>
+          <RevealHeading id="wiedza" className="text-h2 md:col-span-7">Wiedza o roślinach i codzienności</RevealHeading>
           <p className="measure text-muted-foreground md:col-span-5 md:self-end">
             Opisy ziół, tradycyjne zastosowania, nawyki i zasady bezpieczeństwa — wszystko w jednym, spokojnie
             prowadzonym zielniku.
@@ -30,7 +29,7 @@ export function Knowledge() {
               key={a.slug}
               className={cn("relative min-w-0", (layout[i] ?? "").split(" ").filter((c) => c.startsWith("md:")).join(" "))}
             >
-              <Link to="/blog" className="group block h-full">
+              <Link to="/blog/$slug" params={{ slug: a.slug }} className="group block h-full">
                 <div className={cn("relative w-full overflow-hidden rounded-sm md:h-full md:min-h-[260px]", (layout[i] ?? "").split(" ").filter((c) => !c.startsWith("md:")).join(" "))}>
                   <img
                     src={a.image.src}
@@ -44,9 +43,9 @@ export function Knowledge() {
                     )}
                   />
                   <div className="absolute inset-x-0 bottom-0 bg-deep/80 p-5 text-ivory md:bg-deep/75">
-                    <p className="latin text-[15px] text-sage">{a.category}</p>
+                    <p className="latin text-[0.9375rem] text-sage">{a.category}</p>
                     <h3 className="mt-1 font-display text-xl leading-tight md:text-2xl">{a.title}</h3>
-                    <p className="mt-2 hidden text-[15px] text-ivory/80 lg:block">{a.excerpt}</p>
+                    <p className="mt-2 hidden text-[0.9375rem] text-ivory/80 lg:block">{a.excerpt}</p>
                   </div>
                 </div>
               </Link>

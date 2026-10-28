@@ -10,27 +10,50 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as KalendarzZielarskiRouteImport } from './routes/kalendarz-zielarski'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as OMnieRouteImport } from './routes/o-mnie'
 import { Route as OdpornoscRouteImport } from './routes/odpornosc'
 import { Route as PolitykaCookiesRouteImport } from './routes/polityka-cookies'
 import { Route as PolitykaPrywatnosciRouteImport } from './routes/polityka-prywatnosci'
 import { Route as RegulaminRouteImport } from './routes/regulamin'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TrujaceSobowtoryRouteImport } from './routes/trujace-sobowtory'
+import { Route as ZamowienieRouteImport } from './routes/zamowienie'
 import { Route as ZdroweNawykiRouteImport } from './routes/zdrowe-nawyki'
-import { Route as ZiolaIRoslinyRouteImport } from './routes/ziola-i-rosliny'
+import { Route as ZiolaALekiRouteImport } from './routes/ziola-a-leki'
 import { Route as ZwrotyIReklamacjeRouteImport } from './routes/zwroty-i-reklamacje'
+import { Route as ApiCheckoutRouteImport } from './routes/api/checkout'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as ApiDownloadRouteImport } from './routes/api/download'
+import { Route as ApiNewsletterRouteImport } from './routes/api/newsletter'
+import { Route as ApiOrderRouteImport } from './routes/api/order'
+import { Route as ApiPublicConfigRouteImport } from './routes/api/public-config'
+import { Route as ApiStripeWebhookRouteImport } from './routes/api/stripe-webhook'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as EbookiIndexRouteImport } from './routes/ebooki.index'
 import { Route as EbookiSlugRouteImport } from './routes/ebooki.$slug'
+import { Route as ZiolaIRoslinyIndexRouteImport } from './routes/ziola-i-rosliny.index'
+import { Route as ZiolaIRoslinySlugRouteImport } from './routes/ziola-i-rosliny.$slug'
+import { Route as ApiAdminOrdersRouteImport } from './routes/api/admin/orders'
+import { Route as ApiAdminProductsRouteImport } from './routes/api/admin/products'
+import { Route as ApiAdminUploadUrlRouteImport } from './routes/api/admin/upload-url'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KalendarzZielarskiRoute = KalendarzZielarskiRouteImport.update({
+  id: '/kalendarz-zielarski',
+  path: '/kalendarz-zielarski',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -63,19 +86,79 @@ const RegulaminRoute = RegulaminRouteImport.update({
   path: '/regulamin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrujaceSobowtoryRoute = TrujaceSobowtoryRouteImport.update({
+  id: '/trujace-sobowtory',
+  path: '/trujace-sobowtory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZamowienieRoute = ZamowienieRouteImport.update({
+  id: '/zamowienie',
+  path: '/zamowienie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ZdroweNawykiRoute = ZdroweNawykiRouteImport.update({
   id: '/zdrowe-nawyki',
   path: '/zdrowe-nawyki',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ZiolaIRoslinyRoute = ZiolaIRoslinyRouteImport.update({
-  id: '/ziola-i-rosliny',
-  path: '/ziola-i-rosliny',
+const ZiolaALekiRoute = ZiolaALekiRouteImport.update({
+  id: '/ziola-a-leki',
+  path: '/ziola-a-leki',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZwrotyIReklamacjeRoute = ZwrotyIReklamacjeRouteImport.update({
   id: '/zwroty-i-reklamacje',
   path: '/zwroty-i-reklamacje',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCheckoutRoute = ApiCheckoutRouteImport.update({
+  id: '/api/checkout',
+  path: '/api/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDownloadRoute = ApiDownloadRouteImport.update({
+  id: '/api/download',
+  path: '/api/download',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiNewsletterRoute = ApiNewsletterRouteImport.update({
+  id: '/api/newsletter',
+  path: '/api/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiOrderRoute = ApiOrderRouteImport.update({
+  id: '/api/order',
+  path: '/api/order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicConfigRoute = ApiPublicConfigRouteImport.update({
+  id: '/api/public-config',
+  path: '/api/public-config',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStripeWebhookRoute = ApiStripeWebhookRouteImport.update({
+  id: '/api/stripe-webhook',
+  path: '/api/stripe-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EbookiIndexRoute = EbookiIndexRouteImport.update({
@@ -88,115 +171,266 @@ const EbookiSlugRoute = EbookiSlugRouteImport.update({
   path: '/ebooki/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ZiolaIRoslinyIndexRoute = ZiolaIRoslinyIndexRouteImport.update({
+  id: '/ziola-i-rosliny/',
+  path: '/ziola-i-rosliny/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZiolaIRoslinySlugRoute = ZiolaIRoslinySlugRouteImport.update({
+  id: '/ziola-i-rosliny/$slug',
+  path: '/ziola-i-rosliny/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminOrdersRoute = ApiAdminOrdersRouteImport.update({
+  id: '/api/admin/orders',
+  path: '/api/admin/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminProductsRoute = ApiAdminProductsRouteImport.update({
+  id: '/api/admin/products',
+  path: '/api/admin/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminUploadUrlRoute = ApiAdminUploadUrlRouteImport.update({
+  id: '/api/admin/upload-url',
+  path: '/api/admin/upload-url',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
+  '/admin': typeof AdminRoute
+  '/kalendarz-zielarski': typeof KalendarzZielarskiRoute
   '/kontakt': typeof KontaktRoute
   '/o-mnie': typeof OMnieRoute
   '/odpornosc': typeof OdpornoscRoute
   '/polityka-cookies': typeof PolitykaCookiesRoute
   '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
   '/regulamin': typeof RegulaminRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/trujace-sobowtory': typeof TrujaceSobowtoryRoute
+  '/zamowienie': typeof ZamowienieRoute
   '/zdrowe-nawyki': typeof ZdroweNawykiRoute
-  '/ziola-i-rosliny': typeof ZiolaIRoslinyRoute
+  '/ziola-a-leki': typeof ZiolaALekiRoute
   '/zwroty-i-reklamacje': typeof ZwrotyIReklamacjeRoute
+  '/api/checkout': typeof ApiCheckoutRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/download': typeof ApiDownloadRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
+  '/api/order': typeof ApiOrderRoute
+  '/api/public-config': typeof ApiPublicConfigRoute
+  '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/ebooki/$slug': typeof EbookiSlugRoute
+  '/ziola-i-rosliny/$slug': typeof ZiolaIRoslinySlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/ebooki/': typeof EbookiIndexRoute
+  '/ziola-i-rosliny/': typeof ZiolaIRoslinyIndexRoute
+  '/api/admin/orders': typeof ApiAdminOrdersRoute
+  '/api/admin/products': typeof ApiAdminProductsRoute
+  '/api/admin/upload-url': typeof ApiAdminUploadUrlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
+  '/admin': typeof AdminRoute
+  '/kalendarz-zielarski': typeof KalendarzZielarskiRoute
   '/kontakt': typeof KontaktRoute
   '/o-mnie': typeof OMnieRoute
   '/odpornosc': typeof OdpornoscRoute
   '/polityka-cookies': typeof PolitykaCookiesRoute
   '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
   '/regulamin': typeof RegulaminRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/trujace-sobowtory': typeof TrujaceSobowtoryRoute
+  '/zamowienie': typeof ZamowienieRoute
   '/zdrowe-nawyki': typeof ZdroweNawykiRoute
-  '/ziola-i-rosliny': typeof ZiolaIRoslinyRoute
+  '/ziola-a-leki': typeof ZiolaALekiRoute
   '/zwroty-i-reklamacje': typeof ZwrotyIReklamacjeRoute
+  '/api/checkout': typeof ApiCheckoutRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/download': typeof ApiDownloadRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
+  '/api/order': typeof ApiOrderRoute
+  '/api/public-config': typeof ApiPublicConfigRoute
+  '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/ebooki/$slug': typeof EbookiSlugRoute
+  '/ziola-i-rosliny/$slug': typeof ZiolaIRoslinySlugRoute
+  '/blog': typeof BlogIndexRoute
   '/ebooki': typeof EbookiIndexRoute
+  '/ziola-i-rosliny': typeof ZiolaIRoslinyIndexRoute
+  '/api/admin/orders': typeof ApiAdminOrdersRoute
+  '/api/admin/products': typeof ApiAdminProductsRoute
+  '/api/admin/upload-url': typeof ApiAdminUploadUrlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog': typeof BlogRoute
+  '/admin': typeof AdminRoute
+  '/kalendarz-zielarski': typeof KalendarzZielarskiRoute
   '/kontakt': typeof KontaktRoute
   '/o-mnie': typeof OMnieRoute
   '/odpornosc': typeof OdpornoscRoute
   '/polityka-cookies': typeof PolitykaCookiesRoute
   '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
   '/regulamin': typeof RegulaminRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/trujace-sobowtory': typeof TrujaceSobowtoryRoute
+  '/zamowienie': typeof ZamowienieRoute
   '/zdrowe-nawyki': typeof ZdroweNawykiRoute
-  '/ziola-i-rosliny': typeof ZiolaIRoslinyRoute
+  '/ziola-a-leki': typeof ZiolaALekiRoute
   '/zwroty-i-reklamacje': typeof ZwrotyIReklamacjeRoute
+  '/api/checkout': typeof ApiCheckoutRoute
+  '/api/contact': typeof ApiContactRoute
+  '/api/download': typeof ApiDownloadRoute
+  '/api/newsletter': typeof ApiNewsletterRoute
+  '/api/order': typeof ApiOrderRoute
+  '/api/public-config': typeof ApiPublicConfigRoute
+  '/api/stripe-webhook': typeof ApiStripeWebhookRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/ebooki/$slug': typeof EbookiSlugRoute
+  '/ziola-i-rosliny/$slug': typeof ZiolaIRoslinySlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/ebooki/': typeof EbookiIndexRoute
+  '/ziola-i-rosliny/': typeof ZiolaIRoslinyIndexRoute
+  '/api/admin/orders': typeof ApiAdminOrdersRoute
+  '/api/admin/products': typeof ApiAdminProductsRoute
+  '/api/admin/upload-url': typeof ApiAdminUploadUrlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/blog'
+    | '/admin'
+    | '/kalendarz-zielarski'
     | '/kontakt'
     | '/o-mnie'
     | '/odpornosc'
     | '/polityka-cookies'
     | '/polityka-prywatnosci'
     | '/regulamin'
+    | '/sitemap.xml'
+    | '/trujace-sobowtory'
+    | '/zamowienie'
     | '/zdrowe-nawyki'
-    | '/ziola-i-rosliny'
+    | '/ziola-a-leki'
     | '/zwroty-i-reklamacje'
+    | '/api/checkout'
+    | '/api/contact'
+    | '/api/download'
+    | '/api/newsletter'
+    | '/api/order'
+    | '/api/public-config'
+    | '/api/stripe-webhook'
+    | '/blog/$slug'
     | '/ebooki/$slug'
+    | '/ziola-i-rosliny/$slug'
+    | '/blog/'
     | '/ebooki/'
+    | '/ziola-i-rosliny/'
+    | '/api/admin/orders'
+    | '/api/admin/products'
+    | '/api/admin/upload-url'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/blog'
+    | '/admin'
+    | '/kalendarz-zielarski'
     | '/kontakt'
     | '/o-mnie'
     | '/odpornosc'
     | '/polityka-cookies'
     | '/polityka-prywatnosci'
     | '/regulamin'
+    | '/sitemap.xml'
+    | '/trujace-sobowtory'
+    | '/zamowienie'
     | '/zdrowe-nawyki'
-    | '/ziola-i-rosliny'
+    | '/ziola-a-leki'
     | '/zwroty-i-reklamacje'
+    | '/api/checkout'
+    | '/api/contact'
+    | '/api/download'
+    | '/api/newsletter'
+    | '/api/order'
+    | '/api/public-config'
+    | '/api/stripe-webhook'
+    | '/blog/$slug'
     | '/ebooki/$slug'
+    | '/ziola-i-rosliny/$slug'
+    | '/blog'
     | '/ebooki'
+    | '/ziola-i-rosliny'
+    | '/api/admin/orders'
+    | '/api/admin/products'
+    | '/api/admin/upload-url'
   id:
     | '__root__'
     | '/'
-    | '/blog'
+    | '/admin'
+    | '/kalendarz-zielarski'
     | '/kontakt'
     | '/o-mnie'
     | '/odpornosc'
     | '/polityka-cookies'
     | '/polityka-prywatnosci'
     | '/regulamin'
+    | '/sitemap.xml'
+    | '/trujace-sobowtory'
+    | '/zamowienie'
     | '/zdrowe-nawyki'
-    | '/ziola-i-rosliny'
+    | '/ziola-a-leki'
     | '/zwroty-i-reklamacje'
+    | '/api/checkout'
+    | '/api/contact'
+    | '/api/download'
+    | '/api/newsletter'
+    | '/api/order'
+    | '/api/public-config'
+    | '/api/stripe-webhook'
+    | '/blog/$slug'
     | '/ebooki/$slug'
+    | '/ziola-i-rosliny/$slug'
+    | '/blog/'
     | '/ebooki/'
+    | '/ziola-i-rosliny/'
+    | '/api/admin/orders'
+    | '/api/admin/products'
+    | '/api/admin/upload-url'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogRoute: typeof BlogRoute
+  AdminRoute: typeof AdminRoute
+  KalendarzZielarskiRoute: typeof KalendarzZielarskiRoute
   KontaktRoute: typeof KontaktRoute
   OMnieRoute: typeof OMnieRoute
   OdpornoscRoute: typeof OdpornoscRoute
   PolitykaCookiesRoute: typeof PolitykaCookiesRoute
   PolitykaPrywatnosciRoute: typeof PolitykaPrywatnosciRoute
   RegulaminRoute: typeof RegulaminRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TrujaceSobowtoryRoute: typeof TrujaceSobowtoryRoute
+  ZamowienieRoute: typeof ZamowienieRoute
   ZdroweNawykiRoute: typeof ZdroweNawykiRoute
-  ZiolaIRoslinyRoute: typeof ZiolaIRoslinyRoute
+  ZiolaALekiRoute: typeof ZiolaALekiRoute
   ZwrotyIReklamacjeRoute: typeof ZwrotyIReklamacjeRoute
+  ApiCheckoutRoute: typeof ApiCheckoutRoute
+  ApiContactRoute: typeof ApiContactRoute
+  ApiDownloadRoute: typeof ApiDownloadRoute
+  ApiNewsletterRoute: typeof ApiNewsletterRoute
+  ApiOrderRoute: typeof ApiOrderRoute
+  ApiPublicConfigRoute: typeof ApiPublicConfigRoute
+  ApiStripeWebhookRoute: typeof ApiStripeWebhookRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   EbookiSlugRoute: typeof EbookiSlugRoute
+  ZiolaIRoslinySlugRoute: typeof ZiolaIRoslinySlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   EbookiIndexRoute: typeof EbookiIndexRoute
+  ZiolaIRoslinyIndexRoute: typeof ZiolaIRoslinyIndexRoute
+  ApiAdminOrdersRoute: typeof ApiAdminOrdersRoute
+  ApiAdminProductsRoute: typeof ApiAdminProductsRoute
+  ApiAdminUploadUrlRoute: typeof ApiAdminUploadUrlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -208,11 +442,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kalendarz-zielarski': {
+      id: '/kalendarz-zielarski'
+      path: '/kalendarz-zielarski'
+      fullPath: '/kalendarz-zielarski'
+      preLoaderRoute: typeof KalendarzZielarskiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -257,6 +498,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegulaminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trujace-sobowtory': {
+      id: '/trujace-sobowtory'
+      path: '/trujace-sobowtory'
+      fullPath: '/trujace-sobowtory'
+      preLoaderRoute: typeof TrujaceSobowtoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zamowienie': {
+      id: '/zamowienie'
+      path: '/zamowienie'
+      fullPath: '/zamowienie'
+      preLoaderRoute: typeof ZamowienieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/zdrowe-nawyki': {
       id: '/zdrowe-nawyki'
       path: '/zdrowe-nawyki'
@@ -264,11 +526,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZdroweNawykiRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ziola-i-rosliny': {
-      id: '/ziola-i-rosliny'
-      path: '/ziola-i-rosliny'
-      fullPath: '/ziola-i-rosliny'
-      preLoaderRoute: typeof ZiolaIRoslinyRouteImport
+    '/ziola-a-leki': {
+      id: '/ziola-a-leki'
+      path: '/ziola-a-leki'
+      fullPath: '/ziola-a-leki'
+      preLoaderRoute: typeof ZiolaALekiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zwroty-i-reklamacje': {
@@ -276,6 +538,69 @@ declare module '@tanstack/react-router' {
       path: '/zwroty-i-reklamacje'
       fullPath: '/zwroty-i-reklamacje'
       preLoaderRoute: typeof ZwrotyIReklamacjeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/checkout': {
+      id: '/api/checkout'
+      path: '/api/checkout'
+      fullPath: '/api/checkout'
+      preLoaderRoute: typeof ApiCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/download': {
+      id: '/api/download'
+      path: '/api/download'
+      fullPath: '/api/download'
+      preLoaderRoute: typeof ApiDownloadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/newsletter': {
+      id: '/api/newsletter'
+      path: '/api/newsletter'
+      fullPath: '/api/newsletter'
+      preLoaderRoute: typeof ApiNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/order': {
+      id: '/api/order'
+      path: '/api/order'
+      fullPath: '/api/order'
+      preLoaderRoute: typeof ApiOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public-config': {
+      id: '/api/public-config'
+      path: '/api/public-config'
+      fullPath: '/api/public-config'
+      preLoaderRoute: typeof ApiPublicConfigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/stripe-webhook': {
+      id: '/api/stripe-webhook'
+      path: '/api/stripe-webhook'
+      fullPath: '/api/stripe-webhook'
+      preLoaderRoute: typeof ApiStripeWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ebooki/': {
@@ -292,23 +617,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EbookiSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ziola-i-rosliny/': {
+      id: '/ziola-i-rosliny/'
+      path: '/ziola-i-rosliny'
+      fullPath: '/ziola-i-rosliny/'
+      preLoaderRoute: typeof ZiolaIRoslinyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ziola-i-rosliny/$slug': {
+      id: '/ziola-i-rosliny/$slug'
+      path: '/ziola-i-rosliny/$slug'
+      fullPath: '/ziola-i-rosliny/$slug'
+      preLoaderRoute: typeof ZiolaIRoslinySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/orders': {
+      id: '/api/admin/orders'
+      path: '/api/admin/orders'
+      fullPath: '/api/admin/orders'
+      preLoaderRoute: typeof ApiAdminOrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/products': {
+      id: '/api/admin/products'
+      path: '/api/admin/products'
+      fullPath: '/api/admin/products'
+      preLoaderRoute: typeof ApiAdminProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/upload-url': {
+      id: '/api/admin/upload-url'
+      path: '/api/admin/upload-url'
+      fullPath: '/api/admin/upload-url'
+      preLoaderRoute: typeof ApiAdminUploadUrlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogRoute: BlogRoute,
+  AdminRoute: AdminRoute,
+  KalendarzZielarskiRoute: KalendarzZielarskiRoute,
   KontaktRoute: KontaktRoute,
   OMnieRoute: OMnieRoute,
   OdpornoscRoute: OdpornoscRoute,
   PolitykaCookiesRoute: PolitykaCookiesRoute,
   PolitykaPrywatnosciRoute: PolitykaPrywatnosciRoute,
   RegulaminRoute: RegulaminRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TrujaceSobowtoryRoute: TrujaceSobowtoryRoute,
+  ZamowienieRoute: ZamowienieRoute,
   ZdroweNawykiRoute: ZdroweNawykiRoute,
-  ZiolaIRoslinyRoute: ZiolaIRoslinyRoute,
+  ZiolaALekiRoute: ZiolaALekiRoute,
   ZwrotyIReklamacjeRoute: ZwrotyIReklamacjeRoute,
+  ApiCheckoutRoute: ApiCheckoutRoute,
+  ApiContactRoute: ApiContactRoute,
+  ApiDownloadRoute: ApiDownloadRoute,
+  ApiNewsletterRoute: ApiNewsletterRoute,
+  ApiOrderRoute: ApiOrderRoute,
+  ApiPublicConfigRoute: ApiPublicConfigRoute,
+  ApiStripeWebhookRoute: ApiStripeWebhookRoute,
+  BlogSlugRoute: BlogSlugRoute,
   EbookiSlugRoute: EbookiSlugRoute,
+  ZiolaIRoslinySlugRoute: ZiolaIRoslinySlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   EbookiIndexRoute: EbookiIndexRoute,
+  ZiolaIRoslinyIndexRoute: ZiolaIRoslinyIndexRoute,
+  ApiAdminOrdersRoute: ApiAdminOrdersRoute,
+  ApiAdminProductsRoute: ApiAdminProductsRoute,
+  ApiAdminUploadUrlRoute: ApiAdminUploadUrlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

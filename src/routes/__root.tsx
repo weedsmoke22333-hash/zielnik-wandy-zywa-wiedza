@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Layout } from "@/components/site/Layout";
+import { PLAUSIBLE_DOMAIN, SITE_URL, textSizeBootScript } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -66,14 +67,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#182A22" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap",
-      },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      { children: textSizeBootScript },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            { "@type": "Person", "@id": "#wanda", name: "Wanda Machocka", ...(SITE_URL ? { url: SITE_URL } : {}) },
+            { "@type": "WebSite", name: "Wanda Machocka", inLanguage: "pl-PL", ...(SITE_URL ? { url: SITE_URL } : {}), publisher: { "@id": "#wanda" } },
+          ],
+        }),
+      },
+      ...(PLAUSIBLE_DOMAIN
+        ? [{ src: "https://plausible.io/js/script.js", defer: true, "data-domain": PLAUSIBLE_DOMAIN } as Record<string, unknown>]
+        : []),
     ],
   }),
   shellComponent: RootShell,
@@ -84,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pl">
+    <html lang="pl" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
