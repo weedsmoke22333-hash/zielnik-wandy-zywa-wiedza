@@ -109,10 +109,10 @@ export function Hero() {
             Herbarium codziennej troski
           </motion.p>
           <h1 className="text-hero mt-5 font-light">
-            <span className="block overflow-hidden pb-[0.08em]">
+            <span className="block overflow-hidden pb-[0.08em] pt-[0.14em] -mt-[0.14em]">
               <motion.span className="block" {...line(0.45)}>Blisko natury.</motion.span>
             </span>
-            <span className="block overflow-hidden pb-[0.08em]">
+            <span className="block overflow-hidden pb-[0.08em] pt-[0.14em] -mt-[0.14em]">
               <motion.span className="block" {...line(0.6)}>
                 Świadomie <span className="italic">dla</span> zdrowia.
               </motion.span>
