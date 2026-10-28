@@ -140,7 +140,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative order-1 mx-auto w-full max-w-[26rem] lg:order-2 lg:col-span-5 lg:max-w-none">
+        <div className="relative order-1 mx-auto w-full max-w-[26rem] lg:order-2 lg:col-span-5 lg:max-w-[520px]">
           <motion.div style={{ y: yPortrait, rotateX: rotX, rotateY: rotY, transformPerspective: 1200 }} className="relative">
             <motion.img
               src={leafSage}
@@ -159,7 +159,7 @@ export function Hero() {
               animate={reduced ? { opacity: 1 } : { clipPath: "inset(0% 0 0 0)" }}
               transition={{ duration: 1.1, delay: 0.55, ease }}
             >
-              <WandaPortrait eager className="aspect-[4/3] w-full lg:aspect-[3/4]" />
+              <WandaPortrait eager className="aspect-[4/5] w-full" />
               {!reduced && (
                 <motion.span
                   aria-hidden
